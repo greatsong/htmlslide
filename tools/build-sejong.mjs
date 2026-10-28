@@ -1,13 +1,23 @@
 // 세종과학고 특강(2026-09-23) 공개판을 sejong-2026/에 빌드한다.
 // 소스는 neural-explorer/src/lecture(React)에 그대로 두고, 그 저장소의 vite로 한 파일(lecture.js)로 묶는다.
 // 영상(이세돌 인터뷰·하사비스 특강 mp4)은 저작권 때문에 넣지 않는다. 영상이 든 완성본은 neural-explorer/private/lecture-complete
-// 사용: node tools/build-sejong.mjs [neural-explorer 경로]
+// 사용: node tools/build-sejong.mjs [neural-explorer 경로]  (경로를 주지 않으면 greatsong-project/paths.json에서 찾는다)
+import { existsSync, readFileSync } from 'node:fs';
 import { cp, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const ne = path.resolve(process.argv[2] || path.join(here, '../neural-explorer'));
+// 다른 프로젝트 폴더: greatsong-project/paths.json(폴더 재편 스크립트가 관리)에서 찾는다. GREATSONG_ROOT로 바꿀 수 있다.
+const projectDir = (name) => {
+  let root = process.env.GREATSONG_ROOT;
+  for (let d = here; !root && d !== path.dirname(d); d = path.dirname(d)) {
+    if (existsSync(path.join(d, 'paths.json'))) root = d;
+  }
+  if (!root) throw new Error('greatsong-project/paths.json을 찾지 못했습니다. neural-explorer 경로를 인자로 주세요.');
+  return path.join(root, JSON.parse(readFileSync(path.join(root, 'paths.json'), 'utf8'))[name]);
+};
+const ne = path.resolve(process.argv[2] || projectDir('neural-explorer'));
 const out = path.join(here, 'sejong-2026');
 const load = async (name) => {   // neural-explorer에 설치된 패키지를 그 경로에서 불러온다
   const dir = path.join(ne, 'node_modules', name);
