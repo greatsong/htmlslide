@@ -72,6 +72,16 @@
   };
 
   window.CASES = {
+  // 아톰·비트 인트로 키노트를 통째로 끼운다(3D 비트 세상 대신 고를 수 있는 예전 판). 덱의 단계 0~6이 키노트의 장 1~7, KEYNOTE.last를 주면 8장까지
+  keynote: { title: '아톰의 세상과 비트의 세상', steps: 6, html:
+    '<div class="intro"><iframe title="인트로 키노트: 아톰의 세상과 비트의 세상"></iframe></div>',
+    onStep: function (el, step) {
+      el.dataset.k = step; K.knLoad();
+      var w = el.querySelector('iframe').contentWindow;
+      if (w && w.KN) w.KN.go(step);
+    },
+    notes: '' },
+
   // 세종과학고 특강(260923) 자기소개 2~4장 원본 그대로(neural-explorer/public/lecture-assets/source/slide-02~04.png)
   // intro-02만 고침(2026-10-27): 서울대 사범대학 강사 2020 – 2026.8, '2020 – 2022 재단법인 카카오임팩트 이사' 줄 추가(줄 간격을 조금 좁혀 맞춤)
   intro1: { title: '제 소개 1', fx: 'fade', html: '<div class="full"><img alt="" src="../shared/img/intro-02.png"></div>', notes: '' },

@@ -3,6 +3,10 @@
    사례 장은 선도교사단 덱의 본문을 그대로 쓰고 제목만 데이터화 질문으로 바꾼다(KIT.retitle). 장 제목·마무리 문장은 진행자 문장 그대로 */
 (function () {
   var K = window.KIT, X = window.CASES, qttl = K.qttl;
+  // 아톰·비트 장 두 판: 기본은 3D 비트 세상, 주소에 ?atom=keynote를 붙이면 예전 인트로 키노트(확정 전 비교용)
+  var KEY = /[?&]atom=keynote/.test(location.search);
+  window.KEYNOTE = { sub: '서울교육연구정보원 교수학습정보부' };   // 마지막 장(last)은 넣지 않는다: 일곱 장으로 끝나고 데이터화 간지로 이어진다
+  window.BITWORLD = { 0: { cap: '서울교육연구정보원 교수학습정보부' } };   // 3D 판 표지 아래 줄도 같게
   var dq = function (n, name, question) { return qttl(String(n), name, String(n), question, '', 5); };   // 알약: 사례 이름, 큰 제목: 데이터화 질문
   var dcase = function (s, n, name, question) { return K.retitle(s, dq(n, name, question), n + ') ' + question); };
   var weaver = dcase(X.weaver, 1, '서울교육청 협력적 수업설계 AI 에이전트 개발 사례', '성취기준을 데이터화한다면?');
@@ -15,10 +19,10 @@
       '<h1>데이터가 흐르는<br><span class="a">서울교육이 되려면</span></h1>' +
       '<div class="who"><b>당곡고등학교 송석리</b></div>' +
     '</div>',
-    onStep: function () { K.bwLoad(); },   // 다음 장(3D)을 미리 불러 둔다
+    onStep: function () { if (KEY) K.knLoad(); else K.bwLoad(); },   // 다음 장(아톰·비트)을 미리 불러 둔다
     notes: '' }
   ],
-  K.part('시작', [X.bitWorld]),
+  K.part('시작', [KEY ? X.keynote : X.bitWorld]),
   K.part('데이터화', [
     { title: '만약 ㅇㅇㅇ을 데이터화한다면?', fx: 'fade', html: K.sep('만약 ㅇㅇㅇ을 데이터화한다면?'), notes: '' },
     weaver,

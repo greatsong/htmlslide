@@ -52,6 +52,13 @@
     if (f && !f.getAttribute('src')) f.src = BASE + 'bitworld.html?embed=1';
   };
 
+  // 아톰·비트 인트로 키노트(shared/intro-keynote.html, vibe1 인트로를 가져온 것)도 앞 장에서 미리 불러 둔다.
+  // 발표마다 다른 표지 아래 줄·마지막 장은 window.KEYNOTE = {sub, last}로 정한다
+  K.knLoad = function () {
+    var f = document.querySelector('.intro iframe');
+    if (f && !f.getAttribute('src')) f.src = BASE + 'intro-keynote.html?embed=1';
+  };
+
   // 사례 슬라이드의 제목(맨 앞 .ttl 블록)만 바꾼 사본. 본문·노트는 그대로, title을 주면 전체 보기·노트의 장 이름도 바꾼다
   K.retitle = function (s, ttl, title) {
     var o = {}, k, cut = s.html.indexOf('</h2></div>') + 11;
