@@ -1,0 +1,43 @@
+/* AI 모의 면접 덱에만 있는 모양. 나머지는 구술 평가 덱에서 가져온 scenes.css와 엔진(deck.css) */
+
+/* 해결의 흐름: 네 단계 상자를 화살표로 잇는다 */
+.iv-flow { flex: 1; min-height: 0; display: flex; align-items: stretch; gap: 0; }
+.iv-st { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 22px 18px 24px; border-radius: 22px; background: var(--soft); border: 1px solid var(--line); text-align: center; }
+.iv-st em { font-style: normal; font-size: 18px; font-weight: 800; letter-spacing: .04em; color: var(--muted); }
+.iv-st img { height: 230px; max-width: 100%; object-fit: contain; }
+.iv-st b { font-size: 30px; font-weight: 800; letter-spacing: -.02em; }
+.iv-st p { margin: 0; font-size: 22px; line-height: 1.45; color: var(--ink); }
+.iv-st.ai { border-top: 8px solid var(--ai); } .iv-st.ai b { color: var(--ai); }
+.iv-st.tc { border-top: 8px solid var(--teacher); } .iv-st.tc b { color: var(--teacher); }
+.iv-st.stu { border-top: 8px solid var(--student); } .iv-st.stu b { color: var(--student); }
+.iv-st.in { border-top: 8px solid var(--faint); }
+.iv-arr { flex: 0 0 46px; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 800; color: var(--faint); }
+
+/* 이 사례: 대학 자료 묶음 숫자 */
+.iv-nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.iv-nums .card { text-align: center; padding: 26px 16px; }
+.iv-nums .big { font-size: 64px; }
+.iv-nums p { margin: 6px 0 0; font-size: 22px; color: var(--muted); }
+.iv-band { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; font-size: 22px; color: var(--muted); }
+.iv-band .chip { font-size: 20px; }
+
+/* 휴대폰 화면 여러 장: 높이를 줄여 한 줄에 */
+.iv-phones { display: flex; gap: 22px; align-items: flex-start; }
+.iv-phones .phone { height: 520px; }
+.iv-phones .lab { font-size: 19px; }
+
+/* 데이터는 어디로: 두 상자 */
+.iv-box { display: flex; flex-direction: column; gap: 10px; padding: 18px 22px; border-radius: 18px; border: 1px solid var(--line); background: #fff; }
+.iv-box h3 { margin: 0; font-size: 26px; font-weight: 800; }
+.iv-box.keep { border-top: 8px solid var(--teacher); } .iv-box.keep h3 { color: var(--teacher); }
+.iv-box.out { border-top: 8px solid var(--ai); } .iv-box.out h3 { color: var(--ai); }
+.iv-box ul { margin: 0; padding-left: 1.1em; font-size: 21px; line-height: 1.5; }
+.iv-box li + li { margin-top: 6px; }
+
+/* 지금까지: 숫자 카드 */
+.iv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.iv-stats .card { text-align: center; }
+.iv-stats .big small, .iv-time .big small { font-size: .45em; margin-left: 4px; color: var(--muted); }
+.iv-time .card { display: flex; flex-direction: column; gap: 4px; }
+.iv-time .card p { margin: 0; }
+.iv-foot { font-size: 19px; color: var(--muted); margin-top: 10px; }
