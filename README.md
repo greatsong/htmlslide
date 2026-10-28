@@ -15,7 +15,7 @@ shared/
   bitworld.html     아톰·비트 3D 장면. 발표별 문구는 window.BITWORLD로 덮어쓴다
   captures/ img/    공통 그림
 aileader-2026/      동작관악 AI에듀테크 선도교사단 1일차(2026-10-29)
-serii-2026/         서울교육연구정보원 교수학습정보부 사례 발표(준비 중)
+serii-2026/         「데이터가 흐르는 서울교육이 되려면」 사례 발표(준비 중)
 sejong-2026/        세종과학고 특강(2026-09-23). 빌드본
 tools/              build-sejong.mjs
 _src/               브리프·솔라 원고·집계 스크립트(공개하지 않음, gitignore)
