@@ -52,6 +52,15 @@
     if (f && !f.getAttribute('src')) f.src = BASE + 'bitworld.html?embed=1';
   };
 
+  // 사례 슬라이드의 제목(맨 앞 .ttl 블록)만 바꾼 사본. 본문·노트는 그대로, title을 주면 전체 보기·노트의 장 이름도 바꾼다
+  K.retitle = function (s, ttl, title) {
+    var o = {}, k, cut = s.html.indexOf('</h2></div>') + 11;
+    for (k in s) o[k] = s[k];
+    o.html = ttl + s.html.slice(cut);
+    if (title) o.title = title;
+    return o;
+  };
+
   // 사례 슬라이드를 발표의 섹션 이름으로 복사해 넣는다
   K.part = function (sec, list) {
     return list.map(function (s) { var o = {}, k; for (k in s) o[k] = s[k]; o.sec = sec; return o; });

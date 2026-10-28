@@ -205,6 +205,11 @@
 .sep h2 { margin: 0; color: #fff; font-size: 66px; font-weight: 700; letter-spacing: -.01em; }
 #stage:has(.slide.cur .sep) #bar, #stage:has(.slide.cur .sep) #foot { visibility: hidden; }
 .slide.cur .sep h2 { animation: rise .8s cubic-bezier(.16, .84, .3, 1) .15s backwards; }
+/* 마무리 문장 장: 가운데 큰 글자로 한 문장씩 나타난다(나타나기: 움직임 없이) */
+.closing { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 56px; padding: 0 150px; }
+.closing p { margin: 0; font-size: 44px; line-height: 1.55; font-weight: 700; letter-spacing: -.02em; color: var(--ink); text-wrap: pretty; }
+.closing p.b { color: var(--hub); font-weight: 800; }
+.closing [data-s].off { transform: none; }
 /* 마지막 장: 감사 인사 아래 Q&A 한 줄 */
 .sep.end { flex-direction: column; gap: 30px; }
 .sep .qa { margin: 0; color: rgba(255, 255, 255, .78); font-size: 40px; font-weight: 600; letter-spacing: .04em; }
