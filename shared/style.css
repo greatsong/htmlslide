@@ -205,6 +205,10 @@
 .sep h2 { margin: 0; color: #fff; font-size: 66px; font-weight: 700; letter-spacing: -.01em; }
 #stage:has(.slide.cur .sep) #bar, #stage:has(.slide.cur .sep) #foot { visibility: hidden; }
 .slide.cur .sep h2 { animation: rise .8s cubic-bezier(.16, .84, .3, 1) .15s backwards; }
+/* 마지막 장: 감사 인사 아래 Q&A 한 줄 */
+.sep.end { flex-direction: column; gap: 30px; }
+.sep .qa { margin: 0; color: rgba(255, 255, 255, .78); font-size: 40px; font-weight: 600; letter-spacing: .04em; }
+.slide.cur .sep .qa { animation: rise .8s cubic-bezier(.16, .84, .3, 1) .4s backwards; }
 
 /* 3D 장면을 끼운 장(bitworld.html). 머리·바닥 띠는 숨긴다 */
 .bw { position: absolute; inset: 0; z-index: 30; background: #0A0A0B; }
