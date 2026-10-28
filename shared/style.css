@@ -261,3 +261,7 @@
 .intro { position: absolute; inset: 0; z-index: 30; background: #0A0A0B; }
 .intro iframe { width: 100%; height: 100%; border: 0; display: block; }
 #stage:has(.slide.cur .intro) #bar, #stage:has(.slide.cur .intro) #foot { visibility: hidden; }
+
+/* 간지 속 빈칸: 글자 대신 둥근 네모 상자(예: '만약 [  ]을 데이터화한다면?') */
+.sep .blank { display: inline-block; width: 3.4em; height: 1.08em; margin: 0 .14em 0 .2em; vertical-align: -.16em;
+  border: 4px solid rgba(255, 255, 255, .92); border-radius: 16px; background: rgba(255, 255, 255, .14); }

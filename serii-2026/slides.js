@@ -23,7 +23,7 @@
   ],
   K.part('시작', [KEY ? X.keynote : X.bitWorld]),
   K.part('데이터화', [
-    { title: '만약 ㅇㅇㅇ을 데이터화한다면?', fx: 'fade', html: K.sep('만약 ㅇㅇㅇ을 데이터화한다면?'), notes: '' },
+    { title: '만약 ㅇㅇㅇ을 데이터화한다면?', fx: 'fade', html: K.sep('만약 <span class="blank" aria-label="빈칸"></span>을 데이터화한다면?'), notes: '' },
     weaver,
     dcase(X.chat, 2, '당곡 AI 서비스 운영 사례', '학생들의 AI 채팅 기록을 데이터화한다면?'),
     dcase(X.oral, 3, '구술 평가', '프로젝트 과정을 데이터화한다면?'),
